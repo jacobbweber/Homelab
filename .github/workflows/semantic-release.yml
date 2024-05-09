@@ -1,12 +1,12 @@
 name: semantic-release
 
 on:
-  # pull_request:
-  #   types:
-  #     - opened
-  #     - edited
-  #     - reopened
-  #     - synchronize
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
     branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
