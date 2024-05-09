@@ -25,9 +25,6 @@
     ],
     "plugins": [
       [
-        "@conventional-changelog-conventionalcommits"
-      ],
-      [
         "@semantic-release/commit-analyzer",
         {
           "preset": "conventionalcommits"
