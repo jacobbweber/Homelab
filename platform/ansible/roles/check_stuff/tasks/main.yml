@@ -1,0 +1,33 @@
+---
+- name: Testing Stuff
+  delegate_to: mothership
+  vars:
+    ansible_port: 5985
+    ansible_connection: local
+    ansible_winrm_transport: kerberos
+    ansible_winrm_kerberos_delegation: true
+    ansible_winrm_server_cert_validation: ignore
+    ansible_user: ansible
+    ansible_password: Titl@pn!
+  block:
+    - name: Running my task in a role ping a thing
+      ansible.builtin.ping:
+        data: google.com
+      register: results
+
+    - name: Debug the ping results variable
+      ansible.builtin.debug:
+        var: results
+
+    - name: Get Director Contents changed
+      ansible.builtin.command:
+        cmd: ls c:\\temp
+      register: lsvar
+
+    - name: Debug the ls command results variable
+      ansible.builtin.debug:
+        var: lsvar
+
+    - name: Debug global var test
+      ansible.builtin.debug:
+        var: globalvar_test

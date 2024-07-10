@@ -1,0 +1,15 @@
+all:
+  children:
+    localmachines:
+      children:
+        localwsl:
+          hosts:
+            wsl.local:
+        localwindows:
+          hosts:
+            windows.local:
+    lab:
+      children:
+        windows:
+          hosts:
+            packer-2022:

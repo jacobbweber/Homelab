@@ -1,0 +1,33 @@
+---
+- name: Setup Terraform VHDX Scaffolding
+  delegate_to: localhost
+  block:
+    - name: Create Hyperv Terraform VHDX Directory
+      ansible.builtin.file:
+        path: "{{ terraform_hyperv_root_directory }}{{ app_name }}/clone_vhdx"
+        state: directory
+        mode: '0755'
+
+    - name: Creating Terraform provider.tf File
+      ansible.builtin.template:
+        src: hyperv_providers.tf.j2
+        dest: "{{ terraform_hyperv_root_directory }}{{ app_name }}/clone_vhdx/providers.tf"
+        mode: 0755
+
+    - name: Creating Terraform terraform.tfvars File
+      ansible.builtin.template:
+        src: hyperv_vhdx_terraform.tfvars.j2
+        dest: "{{ terraform_hyperv_root_directory }}{{ app_name }}/clone_vhdx/terraform.tfvars"
+        mode: 0755
+
+    - name: Creating Terraform variables.tf File
+      ansible.builtin.template:
+        src: hyperv_vhdx_variables.tf.j2
+        dest: "{{ terraform_hyperv_root_directory }}{{ app_name }}/clone_vhdx/variables.tf"
+        mode: 0755
+
+    - name: Creating Terraform main.tf File
+      ansible.builtin.template:
+        src: hyperv_vhdx_main.tf.j2
+        dest: "{{ terraform_hyperv_root_directory }}{{ app_name }}/clone_vhdx/main.tf"
+        mode: 0755

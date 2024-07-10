@@ -1,0 +1,22 @@
+---
+- name: Hello
+  hosts: localwsl
+  gather_facts: false
+  tasks:
+    - name: Run stuff
+      ansible.builtin.shell: |
+        test-connection google.com
+      args:
+        executable: /usr/bin/pwsh
+
+- name: Hello
+  hosts: localwindows
+  gather_facts: false
+  tasks:
+    - name: Run stuff
+      ansible.windows.win_shell: |
+        #test-connection google.com
+        get-vm rek2 | Stop-VM
+        get-vm win2022_lab | Remove-VM -Force
+
+# ansible-playbook test_home_playbook.yaml -i test_home_inventory.yaml

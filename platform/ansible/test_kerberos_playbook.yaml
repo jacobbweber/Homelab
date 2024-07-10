@@ -1,0 +1,23 @@
+- name: Hello
+  hosts: wsl
+  vars_files:
+    - vars/main.yml
+  gather_facts: false
+  tasks:
+    - name: Run stuff
+      ansible.builtin.shell: |
+        test-connection google.com
+      args:
+        executable: /usr/bin/pwsh
+
+- name: Hello
+  hosts: localhost
+  vars_files:
+    - vars/main.yml
+  gather_facts: false
+  tasks:
+    - name: Run stuff
+      ansible.builtin.shell: |
+        test-connection google.com
+      args:
+        executable: /usr/bin/pwsh

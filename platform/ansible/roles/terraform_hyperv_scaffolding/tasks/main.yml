@@ -1,0 +1,12 @@
+---
+# tasks file for terraform_hyperv_scaffolding
+- name: Get Count of hosts in current play to use var in templates
+  ansible.builtin.set_fact:
+    hostcount: "{{ ansible_play_hosts | length }}"
+
+- name: Include tasks for the active_directory role
+  ansible.builtin.include_tasks: "{{ item }}"
+  with_items:
+    - setup_terraform_vm.yml
+    - setup_terraform_vhdx.yml
+    - run_terraform.yml

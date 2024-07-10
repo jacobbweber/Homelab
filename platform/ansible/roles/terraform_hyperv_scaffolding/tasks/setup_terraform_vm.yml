@@ -1,0 +1,33 @@
+---
+- name: Setup Terraform Virtual Machine Scaffolding
+  delegate_to: localhost
+  block:
+    - name: Create Hyperv Terraform Virtual Machine Directory
+      ansible.builtin.file:
+        path: "{{ terraform_hyperv_root_directory }}{{ app_name }}/virtual_machine"
+        state: directory
+        mode: '0755'
+
+    - name: Creating Terraform provider.tf File
+      ansible.builtin.template:
+        src: hyperv_providers.tf.j2
+        dest: "{{ terraform_hyperv_root_directory }}{{ app_name }}/virtual_machine/providers.tf"
+        mode: 0755
+
+    - name: Creating Terraform terraform.tfvars File
+      ansible.builtin.template:
+        src: hyperv_vm_terraform.tfvars.j2
+        dest: "{{ terraform_hyperv_root_directory }}{{ app_name }}/virtual_machine/terraform.tfvars"
+        mode: 0755
+
+    - name: Creating Terraform variables.tf File
+      ansible.builtin.template:
+        src: hyperv_vm_variables.tf.j2
+        dest: "{{ terraform_hyperv_root_directory }}{{ app_name }}/virtual_machine/variables.tf"
+        mode: 0755
+
+    - name: Creating Terraform main.tf File
+      ansible.builtin.template:
+        src: hyperv_vm_main.tf.j2
+        dest: "{{ terraform_hyperv_root_directory }}{{ app_name }}/virtual_machine/main.tf"
+        mode: 0755

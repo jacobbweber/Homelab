@@ -1,0 +1,9 @@
+---
+- name: Deploy Terraform
+  delegate_to: localhost
+  block:
+    - name: Run PowerShell script in PowerShell 7
+      ansible.builtin.shell:
+        script: |
+          terraform.exe init
+        executable: pwsh.exe

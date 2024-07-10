@@ -1,0 +1,6 @@
+---
+# defaults file for terraform_hyperv_scaffolding
+# Really need to find a better way to get terraform root directory dynamically, dirname works, but eh
+terraform_hyperv_root_directory: "{{ inventory_dir | dirname | dirname | dirname | dirname }}/terraform/hyperv/"
+lab_admin_user: ansible
+lab_admin_password: Titl@pn!

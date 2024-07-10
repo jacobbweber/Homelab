@@ -1,0 +1,6 @@
+vm_name = "sp1-ad"
+vm_vmdk_path = "F:/Tech/Labs/hyper-v/"
+template_name = "packer-windows2022-g2"
+switch_name = "vSwitch"
+user_name = "ansible"
+user_password = "Titl@pn!"

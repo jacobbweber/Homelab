@@ -1,0 +1,5 @@
+vm_name = "sp1-ad"
+vm_vmdk_path = "F:/Tech/Labs/hyper-v/"
+vm_vmdk_template_path = "E:/Tech/Labs/hyper-v/packer-windows2022-g2/Virtual Hard Disks/packer-windows2022-g2.vhdx"
+user_name = "ansible"
+user_password = "Titl@pn!"
